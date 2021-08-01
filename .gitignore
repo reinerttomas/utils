@@ -1,2 +1,5 @@
-.idea
 /vendor/
+/.idea/
+*.dist
+.phpcs-cache
+.phpunit.result.cache
