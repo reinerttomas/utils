@@ -1,0 +1,36 @@
+{
+    "name": "reinerttomas/utils",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomáš Reinert",
+            "email": "reinerttomas@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ReinertTomas\\Utils\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [ "tests" ]
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.94",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-strict-rules": "^0.12.10"
+    },
+    "scripts": {
+        "phpstan": [
+            "vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G"
+        ],
+        "ci": [
+            "@phpstan"
+        ]
+    }
+}
