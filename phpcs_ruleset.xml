@@ -165,6 +165,7 @@
         <properties>
             <property name="rootNamespaces" type="array">
                 <element key="src" value="ReinertTomas\Utils"/>
+                <element key="tests" value="ReinertTomas\Utils\Tests"/>
             </property>
         </properties>
     </rule>
