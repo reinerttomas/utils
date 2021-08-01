@@ -44,8 +44,8 @@ class ValueTest extends TestCase
         $this->assertFalse(Value::isInt($float));
         $this->assertFalse(Value::isInt($string));
         $this->assertFalse(Value::isInt($stringEmpty));
-        $this->assertFalse(Value::isBool($array));
-        $this->assertFalse(Value::isBool($null));
+        $this->assertFalse(Value::isInt($array));
+        $this->assertFalse(Value::isInt($null));
     }
 
     public function testIsFloat(): void
@@ -64,8 +64,8 @@ class ValueTest extends TestCase
         $this->assertFalse(Value::isFloat($int));
         $this->assertFalse(Value::isFloat($string));
         $this->assertFalse(Value::isFloat($stringEmpty));
-        $this->assertFalse(Value::isBool($array));
-        $this->assertFalse(Value::isBool($null));
+        $this->assertFalse(Value::isFloat($array));
+        $this->assertFalse(Value::isFloat($null));
     }
 
     public function testIsString(): void
@@ -84,8 +84,8 @@ class ValueTest extends TestCase
         $this->assertFalse(Value::isString($bool));
         $this->assertFalse(Value::isString($int));
         $this->assertFalse(Value::isString($float));
-        $this->assertFalse(Value::isBool($array));
-        $this->assertFalse(Value::isBool($null));
+        $this->assertFalse(Value::isString($array));
+        $this->assertFalse(Value::isString($null));
     }
 
     public function testIsArray(): void
