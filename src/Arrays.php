@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace ReinertTomas\Utils\Array;
+namespace ReinertTomas\Utils;
 
 use ReinertTomas\Utils\Exception\KeyNotExistsException;
 

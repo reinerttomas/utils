@@ -15,8 +15,8 @@
     </php>
 
     <testsuites>
-        <testsuite name="Array">
-            <directory>tests/Array</directory>
+        <testsuite name="all">
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 

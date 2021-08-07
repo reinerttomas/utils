@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace ReinertTomas\Utils\Tests\Array;
+namespace ReinertTomas\Utils\Tests;
 
 use PHPUnit\Framework\TestCase;
-use ReinertTomas\Utils\Array\Arrays;
+use ReinertTomas\Utils\Arrays;
 use ReinertTomas\Utils\Exception\KeyNotExistsException;
 
 class ArraysTest extends TestCase
