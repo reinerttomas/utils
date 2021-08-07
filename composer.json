@@ -1,5 +1,6 @@
 {
     "name": "reinerttomas/utils",
+    "description": "Lightweight utilities for string & array manipulation",
     "type": "library",
     "license": "MIT",
     "authors": [
