@@ -19,7 +19,7 @@ parameters:
         - tests
 
     # https://phpstan.org/config-reference#vague-typehints
-    # checkMissingIterableValueType: false
+    checkMissingIterableValueType: false
 
     # It's a special "dev" project, I have to ignore the following warnings because
     # the use of this functions is intended.
@@ -31,8 +31,6 @@ parameters:
         #- '#Should not use function "var_dump", please change the code.#'        # warnings for "var_dump()"
         #- '#Should not use function "phpinfo", please change the code.#'         # warnings for "phpinfo()"
         #- '#Variable method call on#'                                            # dev blog!
-        - '#Call to method PHPUnit\\Framework\\Assert::#'
-        - '#Dynamic call to static method PHPUnit\\Framework\\Assert::#'
 
     # I don't use the Symfony PHPUnit bridge in this project, but if you do, you
     # probably will have to add the following bootstrap file:
