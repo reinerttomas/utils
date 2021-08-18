@@ -5,41 +5,41 @@ namespace ReinertTomas\Utils\Tests;
 
 use PHPUnit\Framework\TestCase;
 use ReinertTomas\Utils\Arrays;
-use ReinertTomas\Utils\Exception\KeyNotExistsException;
+use ReinertTomas\Utils\Exception\ArrayException;
 
 class ArraysTest extends TestCase
 {
-    public function testKeyExists(): void
+    /**
+     * @dataProvider provideArrayData
+     */
+    public function testKeyExists(array $data): void
     {
-        $data = [
-            'id' => 1,
-            'title' => 'lorem ipsum',
-        ];
-
-        $this->assertArrayHasKey('id', $data);
-        $this->assertArrayHasKey('title', $data);
-        $this->assertArrayNotHasKey('body', $data);
-
-        $this->assertTrue(Arrays::keyExists($data, 'id'));
-        $this->assertTrue(Arrays::keyExists($data, 'title'));
-        $this->assertFalse(Arrays::keyExists($data, 'body'));
+        self::assertTrue(Arrays::keyExists($data, 'id'));
+        self::assertTrue(Arrays::keyExists($data, 'title'));
+        self::assertFalse(Arrays::keyExists($data, 'body'));
     }
 
-    public function testKeyExistsThrowable(): void
+    /**
+     * @dataProvider provideArrayData
+     */
+    public function testKeyExistsThrowable(array $data): void
     {
-        $data = [
-            'id' => 1,
-            'title' => 'lorem ipsum',
-        ];
-
-        $this->assertArrayHasKey('id', $data);
-        $this->assertArrayHasKey('title', $data);
-        $this->assertArrayNotHasKey('body', $data);
+        self::expectException(ArrayException::class);
 
         Arrays::keyExistsThrowable($data, 'id');
         Arrays::keyExistsThrowable($data, 'title');
-
-        $this->expectException(KeyNotExistsException::class);
         Arrays::keyExistsThrowable($data, 'body');
+    }
+
+    public function provideArrayData(): array
+    {
+        return [
+            [
+                [
+                    'id' => 1,
+                    'title' => 'lorem ipsum',
+                ],
+            ],
+        ];
     }
 }
