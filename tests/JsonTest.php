@@ -8,24 +8,68 @@ use ReinertTomas\Utils\Json;
 
 class JsonTest extends TestCase
 {
-    public function testEncode(): void
+    /**
+     * @dataProvider provideEncodeData
+     */
+    public function testEncode(string $result, array $input): void
     {
-        $array = [
-            'one' => 1,
-            'two' => 2,
-        ];
-
-        $this->assertEquals('{"one":1,"two":2}', Json::encode($array));
+        self::assertEquals($result, Json::encode($input));
     }
 
-    public function testDecode(): void
+    /**
+     * @dataProvider provideDecodeData
+     */
+    public function testDecode(array $result, string $input): void
     {
-        $array = [
-            'one' => 1,
-            'two' => 2,
-        ];
-        $json = '{"one":1,"two":2}';
+        self::assertEquals($result, Json::decode($input));
+    }
 
-        $this->assertEquals($array, Json::decode($json));
+    /**
+     * @dataProvider provideValidateData
+     */
+    public function testValidate(bool $result, string $input): void
+    {
+        self::assertEquals($result, Json::validate($input));
+        self::assertEquals($result, Json::validate($input));
+    }
+
+    public function provideEncodeData(): array
+    {
+        return [
+          [
+              '{"one":1,"two":2}',
+              [
+                  'one' => 1,
+                  'two' => 2,
+              ],
+          ],
+        ];
+    }
+
+    public function provideDecodeData(): array
+    {
+        return [
+            [
+                [
+                    'one' => 1,
+                    'two' => 2,
+                ],
+                '{"one":1,"two":2}',
+            ],
+        ];
+    }
+
+    public function provideValidateData(): array
+    {
+        return [
+            [
+                true,
+                '{"one":1,"two":2}',
+            ],
+            [
+                false,
+                '{"one":1,"two":}',
+            ],
+        ];
     }
 }
